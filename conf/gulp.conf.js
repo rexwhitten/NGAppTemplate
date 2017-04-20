@@ -12,19 +12,20 @@ const path = require('path');
 const gutil = require('gulp-util');
 
 exports.ngModule = 'sompo.app';
-var cdnUrlToReplace='10.12.30.222/cdn/dev/';
+
+var cdnUrlToReplace=['/dev/','devportal'];
 var cdnUrl='';
 
  //gutil.log(gutil.colors.red('Environment'),gutil.env.qa);
 
  if(gutil.env.dev){
-    cdnUrl='10.12.30.222/cdn/dev/';
+    cdnUrl=['/dev/','devportal'];
  }else if(gutil.env.qa){
-    cdnUrl='10.12.30.222/cdn/qa/';
+    cdnUrl=['/qa/','qaportal'];
  }else if(gutil.env.prod){
-    cdnUrl='10.12.30.222/cdn/prod/';
+    cdnUrl=['/prod/','portal'];
  }else{
-   cdnUrl='10.12.30.222/cdn/dev/';
+   cdnUrl=['/dev/','devportal'];
  }
 
  exports.cdnUrlToReplace=cdnUrlToReplace;
