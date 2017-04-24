@@ -19,3 +19,12 @@ function routesConfig($stateProvider) {
     //         }
     //     });
 }
+/** @ngInject */
+function setupMenu(sideMenuService) {
+    // sideMenuService.add({
+    //     name: 'edelivery',
+    //     state: 'edelivery',
+    //     title: 'eDelivery',
+    //     icon: 'fa fa-clock-o fa-lg'
+    // });
+}
