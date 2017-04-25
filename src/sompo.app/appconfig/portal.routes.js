@@ -12,8 +12,9 @@ function routesConfig($stateProvider) {
     //         controllerAs: 'vm',
     //         resolve: {
     //             /** @ngInject */
-    //             isAuthenticated: function(authService) {
+    //             isAuthenticated: function($rootScope,authService) {
     //                 authService.isAuthenticated(['admin', 'external_agent_broker'], null);
+    //                   $rootScope.$broadcast('menuChanged', 'menuname');
     //                 return true;
     //             }
     //         }
