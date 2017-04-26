@@ -1,5 +1,5 @@
 angular
     .module('sompo.app', ['ngSanitize','angular-loading-bar','ngAnimate', 'ngStorage',
-        'ui.router', 'ui.bootstrap', 'environment', 'dx',
+        'ui.router', 'ui.bootstrap', 'environment', 'dx','ODataResources',
         'sompo.shared'
     ]);
