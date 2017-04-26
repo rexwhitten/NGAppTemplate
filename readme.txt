@@ -27,6 +27,7 @@ sompo.app with your application name like sompo.edelivery
 
 rename sompo.app folder with  your application name
 
+portal.routes.js---->setup function change scoope....
 
 -------------------- RUN THE APP---------------------------------
 gulp clean

@@ -1,6 +1,7 @@
 angular
     .module('sompo.app')
-    .config(routesConfig);
+    .config(routesConfig)
+    .run(setup);
 
 /** @ngInject */
 function routesConfig($stateProvider) {
@@ -21,7 +22,10 @@ function routesConfig($stateProvider) {
     //     });
 }
 /** @ngInject */
-function setupMenu(sideMenuService) {
+function setup(sideMenuService, appScopeService) {
+    //add scope for login
+    //TODO: change this
+    appScopeService.add('policy_service');
     // sideMenuService.add({
     //     name: 'edelivery',
     //     state: 'edelivery',
