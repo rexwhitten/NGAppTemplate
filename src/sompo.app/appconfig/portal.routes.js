@@ -1,10 +1,12 @@
-angular
+(function () {
+  angular
     .module('sompo.app')
     .config(routesConfig)
     .run(setup);
 
-/** @ngInject */
-function routesConfig($stateProvider) {
+  /** @ngInject */
+  function routesConfig($stateProvider, $locationProvider) {
+    $locationProvider.html5Mode(true).hashPrefix('!');
     // $stateProvider
     //     .state('dashboard', {
     //         url: '/dashboard',
@@ -20,9 +22,9 @@ function routesConfig($stateProvider) {
     //             }
     //         }
     //     });
-}
-/** @ngInject */
-function setup(sideMenuService, appScopeService) {
+  }
+  /** @ngInject */
+  function setup(sideMenuService, appScopeService) {
     //add scope for login
     //TODO: change this
     appScopeService.add('policy_service');
@@ -32,4 +34,6 @@ function setup(sideMenuService, appScopeService) {
     //     title: 'eDelivery',
     //     icon: 'fa fa-clock-o fa-lg'
     // });
-}
+  }
+
+})();
