@@ -5,8 +5,7 @@
     .run(setup);
 
   /** @ngInject */
-  function routesConfig($stateProvider, $locationProvider) {
-    $locationProvider.html5Mode(true).hashPrefix('!');
+  function routesConfig($stateProvider) {
     // $stateProvider
     //     .state('dashboard', {
     //         url: '/dashboard',

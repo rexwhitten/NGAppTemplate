@@ -74,6 +74,8 @@
 
     /** @ngInject */
     function httpConfig($httpProvider, $localStorageProvider) {
+        $locationProvider.html5Mode(true).hashPrefix('!');
+
         $httpProvider.interceptors.push(function() {
             return {
                 'request': function(config) {
