@@ -24,6 +24,8 @@ run the following commands
 -----------------------ONE TIME CHANGES---------------------------
 replace strings/texts in the project
 sompo.app with your application name like sompo.edelivery
+In index.html,
+sompo-app.js and sompo-app.css with your application name like sompo-edelivery.js  sompo-edelivery.css
 
 rename sompo.app folder with  your application name
 
