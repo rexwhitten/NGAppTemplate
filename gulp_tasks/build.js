@@ -46,7 +46,5 @@ function build() {
     .pipe(htmlFilter)
     .pipe(htmlmin())
     .pipe(htmlFilter.restore)
-    .pipe(replace(conf.cdnUrlToReplace[0], conf.cdnUrl[0]))
-    .pipe(replace(conf.cdnUrlToReplace[1], conf.cdnUrl[1]))
     .pipe(gulp.dest(conf.path.dist()));
 }

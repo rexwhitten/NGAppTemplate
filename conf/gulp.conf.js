@@ -13,24 +13,6 @@ const gutil = require('gulp-util');
 
 exports.ngModule = 'sompo.app';
 
-var cdnUrlToReplace=['/dev/','devportal'];
-var cdnUrl='';
-
- //gutil.log(gutil.colors.red('Environment'),gutil.env.qa);
-
- if(gutil.env.dev){
-    cdnUrl=['/dev/','devportal'];
- }else if(gutil.env.qa){
-    cdnUrl=['/qa/','qaportal'];
- }else if(gutil.env.prod){
-    cdnUrl=['/prod/','portal'];
- }else{
-   cdnUrl=['/dev/','devportal'];
- }
-
- exports.cdnUrlToReplace=cdnUrlToReplace;
- exports.cdnUrl=cdnUrl;
-
 /**
  *  The main paths of your project handle these with care
  */
