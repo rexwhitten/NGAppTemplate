@@ -51,11 +51,11 @@
         .run(login);
 
     /** @ngInject */
-    function login(authService) {
+       function login(authService,jwtService) {
         var token = authService.getToken();
-        if (token) {
-            return;
-        }
+        if (!_.isNil(token) && !jwtService.isTokenExpired(token)) {
+                return;
+            }
         authService.login('chris', 'secret')
             .then(function(response) {})
             .catch(function errorCallback(response) {
