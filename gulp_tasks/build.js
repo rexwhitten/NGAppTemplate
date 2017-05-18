@@ -12,7 +12,7 @@ const uglifySaveLicense = require('uglify-save-license');
 const inject = require('gulp-inject');
 const ngAnnotate = require('gulp-ng-annotate');
 const replace = require('gulp-replace');
-
+const gutil = require('gulp-util');
 const conf = require('../conf/gulp.conf');
 
 gulp.task('build', build);
@@ -34,7 +34,7 @@ function build() {
     .pipe(useref({}, lazypipe().pipe(sourcemaps.init, {loadMaps: true})))
     .pipe(jsFilter)
     .pipe(ngAnnotate())
-    .pipe(uglify({preserveComments: uglifySaveLicense})).on('error', conf.errorHandler('Uglify'))
+    .pipe((gutil.env.qa || gutil.env.prod)? uglify({preserveComments: uglifySaveLicense}): gutil.noop())
    // .pipe(rev())
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
