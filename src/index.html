@@ -51,11 +51,15 @@
         .run(login);
 
     /** @ngInject */
-       function login(authService,jwtService) {
+       function login(authService,jwtService, $localStorage) {
         var token = authService.getToken();
         if (!_.isNil(token) && !jwtService.isTokenExpired(token)) {
                 return;
-            }
+        }
+        
+        delete $localStorage.sima;
+        delete $localStorage.user;
+        
         authService.login('chris', 'secret')
             .then(function(response) {})
             .catch(function errorCallback(response) {
