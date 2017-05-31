@@ -27,16 +27,26 @@
       });
   }
   /** @ngInject */
-  function setup(sideMenuService, appScopeService) {
-    //add scope for login
-    //TODO: change this
-    appScopeService.add('policy_service');
-    sideMenuService.add({
-        name: 'edelivery',
-        state: 'edelivery',
-        title: 'eDelivery',
-        icon: 'fa fa-clock-o fa-lg'
+ function setup($rootScope, sideMenuService, authService) {
+    var menu = {
+      name: 'edelivery',
+      state: 'edelivery',
+      title: 'eDelivery',
+      icon: 'fa fa-clock-o fa-lg'
+    };
+    $rootScope.$on('loggedIn', function (event, data) {
+      var response = authService.isAuthenticated(null, null);
+      if (response === true) {
+        sideMenuService.add(menu);
+      }
     });
+    $rootScope.$on('sideMenuReady', function (event, data) {
+      var response = authService.isAuthenticated(null, null);
+      if (response === true) {
+        sideMenuService.add(menu);
+      }
+    });
+
   }
 
 })();
